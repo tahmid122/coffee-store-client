@@ -37,8 +37,14 @@ const SignUp = () => {
 
     createUser(email, password)
       .then((result) => {
+        const profile = {
+          ...userProfile,
+          email,
+          creationTime: result.user.metadata?.creationTime,
+          lastSignInTime: result.user.metadata?.lastSignInTime,
+        };
         console.log(result.user);
-        sentUserToDb(userProfile);
+        sentUserToDb(profile);
       })
       .catch((error) => console.log(error));
   };

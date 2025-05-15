@@ -10,6 +10,10 @@ p {
   font-family: "Raleway", sans-serif;
 }
 input,
-label {
+label,
+td {
   font-family: "Raleway", sans-serif;
+}
+.active {
+  border-bottom: 2px solid red;
 }

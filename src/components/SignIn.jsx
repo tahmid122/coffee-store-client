@@ -11,6 +11,17 @@ const SignIn = () => {
       })
       .catch((error) => console.log(error.message));
   };
+  const updateSignInTime = (email, time) => {
+    fetch(`http://localhost:5000/users/${email}`, {
+      method: "PATCH",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify({ time: time }),
+    })
+      .then((res) => res.json())
+      .then((data) => console.log(data));
+  };
   const handleSignIn = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -18,7 +29,13 @@ const SignIn = () => {
     const { email, password } = Object.fromEntries(formData.entries());
     console.log(email, password);
     signIn(email, password)
-      .then((result) => console.log(result.user))
+      .then((result) => {
+        console.log(result.user);
+        updateSignInTime(
+          result.user.email,
+          result.user.metadata?.lastSignInTime
+        );
+      })
       .catch((error) => console.log(error));
   };
   return (
