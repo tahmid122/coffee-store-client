@@ -20,20 +20,25 @@ const router = createBrowserRouter([
       {
         index: true,
         Component: Home,
-        loader: () => fetch("http://localhost:5000/coffees"),
+        loader: () =>
+          fetch("https://coffee-store-server-chi-eight.vercel.app/coffees"),
       },
       { path: "add-coffee", Component: AddCoffee },
       {
         path: "update-coffee/:id",
         Component: UpdateCoffee,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/coffees/${params.id}`),
+          fetch(
+            `https://coffee-store-server-chi-eight.vercel.app/coffees/${params.id}`
+          ),
       },
       {
         path: "coffee-details/:id",
         Component: CoffeeDetails,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/coffees/${params.id}`),
+          fetch(
+            `https://coffee-store-server-chi-eight.vercel.app/coffees/${params.id}`
+          ),
       },
       {
         path: "signin",
@@ -45,7 +50,8 @@ const router = createBrowserRouter([
       },
       {
         path: "users",
-        loader: () => fetch("http://localhost:5000/users"),
+        loader: () =>
+          fetch("https://coffee-store-server-chi-eight.vercel.app/users"),
         Component: Users,
       },
     ],

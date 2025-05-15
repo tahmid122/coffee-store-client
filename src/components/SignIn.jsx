@@ -12,7 +12,7 @@ const SignIn = () => {
       .catch((error) => console.log(error.message));
   };
   const updateSignInTime = (email, time) => {
-    fetch(`http://localhost:5000/users/${email}`, {
+    fetch(`https://coffee-store-server-chi-eight.vercel.app/users/${email}`, {
       method: "PATCH",
       headers: {
         "content-type": "application/json",

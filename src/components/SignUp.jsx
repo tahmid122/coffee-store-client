@@ -12,7 +12,7 @@ const SignUp = () => {
       .catch((error) => console.log(error.message));
   };
   const sentUserToDb = (user) => {
-    fetch("http://localhost:5000/users", {
+    fetch("https://coffee-store-server-chi-eight.vercel.app/users", {
       method: "POST",
       headers: {
         "content-type": "application/json",
